@@ -18,3 +18,5 @@ ml-backend/src/models/*.pkl
 # OS
 .DS_Store
 Thumbs.db
+
+.claude

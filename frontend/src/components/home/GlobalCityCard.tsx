@@ -1,5 +1,11 @@
 import Link from "next/link";
-import type { GlobalResult } from "@/app/page";
+
+interface GlobalResult {
+  name: string;
+  country: string;
+  aqi: number | null;
+  pm25: number | null;
+}
 
 interface Props {
   city: GlobalResult;
