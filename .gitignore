@@ -19,4 +19,4 @@ ml-backend/src/models/*.pkl
 .DS_Store
 Thumbs.db
 
-.claude
+.claude/
