@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
+import { NavBar } from "@/components/NavBar";
 import type { DbFacility } from "@/types";
 
 function FacilityCard({ facility }: { facility: DbFacility }) {
@@ -67,18 +68,7 @@ export default async function FacilitiesPage() {
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900 font-sans selection:bg-sage-100">
 
-      {/* Navigation */}
-      <nav className="flex items-center justify-between px-6 py-6 md:px-12 lg:px-20 bg-stone-900 text-stone-50">
-        <div className="flex items-center gap-2">
-          <div className="w-2.5 h-2.5 bg-sage-500 rounded-full" />
-          <Link href="/"><span className="font-serif text-xl font-bold tracking-tight text-stone-50">PolluWatch.</span></Link>
-        </div>
-        <div className="flex gap-8 text-xs font-medium uppercase tracking-widest text-stone-400">
-          <Link href="/" className="hover:text-stone-50 transition-colors">Overview</Link>
-          <Link href="/explore" className="hover:text-stone-50 transition-colors">Air Quality</Link>
-          <Link href="/facilities" className="text-stone-50 border-b border-sage-500 pb-0.5">Facilities</Link>
-        </div>
-      </nav>
+      <NavBar active="facilities" />
 
       <main className="max-w-[1400px] mx-auto px-6 py-16 md:px-12 lg:px-24">
 
@@ -87,7 +77,7 @@ export default async function FacilitiesPage() {
           <p className="text-stone-500 font-sans uppercase tracking-[0.2em] text-sm mb-4">
             Proof of Concept
           </p>
-          <h1 className="text-5xl md:text-7xl font-serif text-stone-900 leading-none tracking-tight mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-serif text-stone-900 leading-none tracking-tight mb-6">
             Industrial Compliance
           </h1>
           <p className="text-xl text-stone-600 font-serif italic max-w-2xl">

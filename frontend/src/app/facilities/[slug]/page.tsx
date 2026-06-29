@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
+import { NavBar } from "@/components/NavBar";
 import { SensorCalibrationChart } from "@/components/facilities/SensorCalibrationChart";
 import { EmissionsChart } from "@/components/facilities/EmissionsChart";
 import type { DbFacility, BoundaryReading, EmissionEstimate } from "@/types";
@@ -182,18 +183,7 @@ export default async function FacilityPage({ params }: Props) {
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900 font-sans selection:bg-sage-100">
 
-      {/* Navigation */}
-      <nav className="flex items-center justify-between px-6 py-6 md:px-12 lg:px-20 bg-stone-900 text-stone-50">
-        <div className="flex items-center gap-2">
-          <div className="w-2.5 h-2.5 bg-sage-500 rounded-full" />
-          <Link href="/"><span className="font-serif text-xl font-bold tracking-tight text-stone-50">PolluWatch.</span></Link>
-        </div>
-        <div className="flex gap-8 text-xs font-medium uppercase tracking-widest text-stone-400">
-          <Link href="/" className="hover:text-stone-50 transition-colors">Overview</Link>
-          <Link href="/explore" className="hover:text-stone-50 transition-colors">Air Quality</Link>
-          <Link href="/facilities" className="text-stone-50 border-b border-sage-500 pb-0.5">Facilities</Link>
-        </div>
-      </nav>
+      <NavBar active="facilities" />
 
       {/* Header */}
       <header className="px-6 py-16 md:px-12 lg:px-24 border-b border-stone-200">
@@ -202,7 +192,7 @@ export default async function FacilityPage({ params }: Props) {
             <Link href="/facilities" className="hover:text-stone-600 transition-colors">Facilities</Link>
             {" / "}Industrial Compliance — Proof of Concept
           </p>
-          <h1 className="text-5xl md:text-6xl font-serif text-stone-900 leading-tight tracking-tight mb-4">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif text-stone-900 leading-tight tracking-tight mb-4">
             {facility.name}
           </h1>
           <div className="flex flex-wrap gap-4 mt-4">
@@ -251,7 +241,7 @@ export default async function FacilityPage({ params }: Props) {
                   </span>
                 )}
               </p>
-              <div className="grid grid-cols-3 gap-4 mb-10">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
                 <StatCard
                   label="Raw RMSE (uncalibrated)"
                   value={testRows.length > 0 ? `${rawVsRef.toFixed(3)} µg/m³` : "—"}

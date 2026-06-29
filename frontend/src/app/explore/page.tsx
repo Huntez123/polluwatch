@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
+import { NavBar } from "@/components/NavBar";
 import { DashboardClient } from "@/components/DashboardClient";
 import type { DbLocation, HistoricalPoint, PredictionPoint } from "@/types";
 
@@ -75,19 +76,9 @@ export default async function ExplorePage({ searchParams }: Props) {
 
   return (
     <div className="min-h-screen bg-stone-50">
-      <nav className="flex items-center justify-between px-6 py-6 md:px-12 lg:px-20 bg-stone-900 text-stone-50">
-        <div className="flex items-center gap-2">
-          <div className="w-2.5 h-2.5 bg-sage-500 rounded-full" />
-          <Link href="/"><span className="font-serif text-xl font-bold tracking-tight text-stone-50">PolluWatch.</span></Link>
-        </div>
-        <div className="flex gap-8 text-xs font-medium uppercase tracking-widest text-stone-400">
-          <Link href="/" className="hover:text-stone-50 transition-colors">Overview</Link>
-          <Link href="/explore" className="text-stone-50 border-b border-sage-500 pb-0.5">Air Quality</Link>
-          <Link href="/facilities" className="hover:text-stone-50 transition-colors">Facilities</Link>
-        </div>
-      </nav>
+      <NavBar active="explore" />
       <header className="px-6 py-8 border-b border-stone-200">
-        <h1 className="text-5xl font-serif text-stone-900 mb-2">Air Quality Explorer</h1>
+        <h1 className="text-3xl sm:text-5xl font-serif text-stone-900 mb-2">Air Quality Explorer</h1>
         <p className="text-stone-500 font-sans max-w-2xl text-lg">
           Real-time analytics and historical trends across our monitored Kenyan cities.
         </p>

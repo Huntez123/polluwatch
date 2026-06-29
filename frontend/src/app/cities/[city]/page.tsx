@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
+import { NavBar } from "@/components/NavBar";
 import { HistoricalChart } from "@/components/HistoricalChart";
 import { ForecastChart } from "@/components/ForecastChart";
 import { PollutantGrid } from "@/components/PollutantGrid";
@@ -90,24 +91,14 @@ export default async function CityPage({ params }: Props) {
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900 font-sans selection:bg-sage-100">
 
-      <nav className="flex items-center justify-between px-6 py-6 md:px-12 lg:px-20 bg-stone-900 text-stone-50">
-        <div className="flex items-center gap-2">
-          <div className="w-2.5 h-2.5 bg-sage-500 rounded-full" />
-          <Link href="/"><span className="font-serif text-xl font-bold tracking-tight text-stone-50">PolluWatch.</span></Link>
-        </div>
-        <div className="flex gap-8 text-xs font-medium uppercase tracking-widest text-stone-400">
-          <Link href="/" className="hover:text-stone-50 transition-colors">Overview</Link>
-          <Link href="/explore" className="text-stone-50 border-b border-sage-500 pb-0.5">Air Quality</Link>
-          <Link href="/facilities" className="hover:text-stone-50 transition-colors">Facilities</Link>
-        </div>
-      </nav>
+      <NavBar active="explore" />
 
       {/* Header section - Magazine style */}
-      <header className="px-6 py-16 md:px-12 lg:px-24 border-b border-stone-200">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-end gap-12">
+      <header className="px-6 py-8 sm:py-16 md:px-12 lg:px-24 border-b border-stone-200">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between md:items-end gap-6 sm:gap-12">
           <div>
             <p className="text-stone-400 font-sans uppercase tracking-widest text-sm mb-4">Location Report</p>
-            <h1 className="text-6xl md:text-8xl font-serif text-stone-900 leading-none tracking-tight">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-serif text-stone-900 leading-none tracking-tight">
               {location.name}
             </h1>
             <p className="mt-4 text-stone-500 font-serif text-xl italic max-w-lg">
@@ -118,7 +109,7 @@ export default async function CityPage({ params }: Props) {
           {latest && (
             <div className="text-right">
               <p className="text-stone-400 text-sm uppercase tracking-widest mb-2">Current AQI</p>
-              <div className={`text-7xl md:text-9xl font-serif leading-none tracking-tighter ${getAqiColorClass(latest.aqi)}`}>
+              <div className={`text-5xl sm:text-7xl md:text-9xl font-serif leading-none tracking-tighter ${getAqiColorClass(latest.aqi)}`}>
                 {latest.aqi}
               </div>
               <p className="text-xl font-sans font-medium text-stone-600 mt-2">{latest.category}</p>

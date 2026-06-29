@@ -65,7 +65,7 @@ export function DashboardClient({
 
   return (
     <div className="max-w-7xl mx-auto space-y-16">
-      <div className="flex justify-between items-end border-b border-stone-200 pb-4">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-3 sm:gap-0 border-b border-stone-200 pb-4">
         <h2 className="text-3xl font-serif text-stone-900">Live Telemetry</h2>
         <select
           value={selectedCity}
