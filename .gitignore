@@ -1,0 +1,20 @@
+# Next.js
+frontend/.next/
+frontend/node_modules/
+frontend/.env.local
+frontend/.env*.local
+
+# Python
+ml-backend/__pycache__/
+ml-backend/**/__pycache__/
+ml-backend/*.pyc
+ml-backend/**/*.pyc
+ml-backend/.env
+ml-backend/venv/
+ml-backend/.venv/
+ml-backend/data/*.csv
+ml-backend/src/models/*.pkl
+
+# OS
+.DS_Store
+Thumbs.db
